@@ -1,0 +1,68 @@
+version: 2
+
+before:
+  hooks:
+    - make sync
+    - go mod tidy
+
+builds:
+  - id: pnt
+    main: ./cmd/pnt
+    binary: pnt
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - darwin
+      - linux
+      - windows
+    goarch:
+      - amd64
+      - arm64
+    ignore:
+      - goos: windows
+        goarch: arm64
+    ldflags:
+      - -s -w -X main.version={{.Version}}
+
+archives:
+  - id: pnt
+    formats: [tar.gz]
+    format_overrides:
+      - goos: windows
+        formats: [zip]
+    name_template: >-
+      pnt_{{ .Version }}_
+      {{- .Os }}_
+      {{- if eq .Arch "amd64" }}x86_64
+      {{- else }}{{ .Arch }}{{ end }}
+    files:
+      - README.md
+      - LICENSE
+      - skill.md
+
+checksum:
+  name_template: 'checksums.txt'
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - '^docs:'
+      - '^test:'
+      - '^chore:'
+
+release:
+  github:
+    owner: Danush-Aries
+    name: ponytail-for-python
+  draft: false
+  prerelease: auto
+  header: |
+    ## Ponytail for Python {{ .Tag }}
+
+    The lazy senior Python developer ruleset for Claude Code and Cursor.
+
+    Install:
+    ```bash
+    curl -sSL https://raw.githubusercontent.com/Danush-Aries/ponytail-for-python/main/install.sh | sh
+    ```
