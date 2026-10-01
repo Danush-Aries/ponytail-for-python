@@ -5,10 +5,6 @@
 A single-file Claude Code / Cursor skill that makes AI write Python like it has been maintaining the codebase for five years. No unnecessary deps. No premature abstraction. No ceremonial docstrings on 3-line functions.
 
 <p align="center">
-  <img src="assets/hero.gif" alt="Same prompt, left without ponytail (4 layers of abstraction), right with ponytail (12 lines)." width="720">
-</p>
-
-<p align="center">
   <a href="https://github.com/Danush-Aries/ponytail-for-python/releases/latest"><img src="https://img.shields.io/github/v/release/Danush-Aries/ponytail-for-python?style=for-the-badge&label=install" alt="latest release"></a>
   <a href="https://github.com/Danush-Aries/ponytail-for-python/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-blue?style=for-the-badge" alt="MIT"></a>
   <a href="https://github.com/Danush-Aries/ponytail-for-python/actions/workflows/ci.yml"><img src="https://img.shields.io/github/actions/workflow/status/Danush-Aries/ponytail-for-python/ci.yml?branch=main&style=for-the-badge" alt="CI"></a>
